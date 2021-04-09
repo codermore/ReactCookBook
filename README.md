@@ -1,6 +1,5 @@
-# Getting Started with Create React App
+# Rect CookBook by Me
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

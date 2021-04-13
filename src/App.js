@@ -4,6 +4,8 @@ import './App.css'
 
 //Components
 import NavBar from './components/NavBar'
+import OperadorDePropagacion from "./components/OperadorDePropagacion";
+import Formulario from "./components/Formulario";
 
 
 class App extends Component {
@@ -34,7 +36,7 @@ class App extends Component {
 
   componentDidMount = () => {
 
-    this.desc = "logger";
+    // this.desc = "logger"
     console.log(this.state);
   }
 
@@ -68,15 +70,14 @@ class App extends Component {
     return (
       <>
 
-        <NavBar/>
+        {/* <NavBar/> */}
 
         <div className="App-header">
           <div className="container">
             <div className="row">
 
-              <div className="col-sm-4">
-                <h1>{this.state.titulo}</h1>
-                <h2 style={{ marginTop: '20px' }}>Clicks: {this.state.contador}</h2>
+            <div className="col-sm-4">
+                <Formulario/>
               </div>
 
               <div className="col-sm-4" style={{ textAlign: 'center' }}>
@@ -85,20 +86,11 @@ class App extends Component {
               </div>
 
               <div className="col-sm-4">
-                <form className="form">
-                  <div><h2>Cambiar de nombre al titulo</h2></div>
-                  <input
-                    type='string'
-                    name='titulo'
-                    value={this.state.titulo}
-                    onChange={this.changeHandler}
-                    width='100px'
-
-                  />
-                  <input type="submit" value="Reinciar" className={this.state.stilosboton[this.state.index]} />
-
-                </form>
+                {/* <h1>{this.state.titulo}</h1> */}
+                <h2 style={{ marginTop: '20px' }}>Clicks: {this.state.contador}</h2>
+                <OperadorDePropagacion/>
               </div>
+
 
             </div>
           </div>

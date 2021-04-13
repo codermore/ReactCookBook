@@ -1,4 +1,4 @@
-# Rect CookBook by Me
+# React CookBook by Me
 
 
 ## Available Scripts

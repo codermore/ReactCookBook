@@ -6,11 +6,12 @@ import './App.css'
 import NavBar from './components/NavBar'
 import OperadorDePropagacion from "./components/OperadorDePropagacion";
 import Formulario from "./components/Formulario";
+import GridDeCiudades from "./components/GridDeCiudades"
 
 
 class App extends Component {
   constructor(props) {
-    super(props)
+      super(props)
 
     this.state = {
       index: 0,
@@ -26,7 +27,6 @@ class App extends Component {
         'btn btn-dark',
         'btn btn-light',
         'btn btn-link',
-        'btn',
       ]
     }
 
@@ -34,18 +34,18 @@ class App extends Component {
 
   }
 
-  componentDidMount = () => {
-
-    // this.desc = "logger"
-    console.log(this.state);
-  }
-
   incrementar = () => {
     console.log("se incrementa", this.state.index, this.state.stilosboton[this.state.index])
 
-    var { index, contador } = this.state;
+    var { img, index, contador } = this.state;
 
-    const img = 'https://picsum.photos/500/500?random=' + index;
+    if (contador < 10) {
+      img = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/00' + contador + '.png';
+      console.log(img)
+    } 
+    else if (contador < 100) img = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/0' + contador + '.png';
+    else img = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + contador + '.png';
+
 
     if (index == this.state.stilosboton.length - 1) {
       index = 0;
@@ -70,26 +70,29 @@ class App extends Component {
     return (
       <>
 
-        {/* <NavBar/> */}
+        <NavBar/>
 
         <div className="App-header">
           <div className="container">
             <div className="row">
 
-            <div className="col-sm-4">
-                <Formulario/>
+              <GridDeCiudades/>
+
+              {/*
+              <div className="col-sm-4">
+                <Formulario stilosBotonIndex={this.state.stilosboton[this.state.index]} />
               </div>
 
               <div className="col-sm-4" style={{ textAlign: 'center' }}>
                 <img src={this.state.img} className="img-fluid" />
-                <button style={{ fontSize: '20px', marginTop: '25px' }} className={this.state.stilosboton[this.state.index]} onClick={this.incrementar}>Clickea aqui!</button>
+                <button style={{ fontSize: '20px', marginTop: '25px' }} className={this.state.stilosboton[this.state.index]} onClick={this.incrementar}>Foto</button>
               </div>
 
               <div className="col-sm-4">
-                {/* <h1>{this.state.titulo}</h1> */}
-                <h2 style={{ marginTop: '20px' }}>Clicks: {this.state.contador}</h2>
-                <OperadorDePropagacion/>
+                <h2 style={{ marginTop: '20px' }}>Fotos mostradas: {this.state.contador}</h2>
+                <OperadorDePropagacion stilosBotonIndex={this.state.stilosboton[this.state.index]} />
               </div>
+            */}
 
 
             </div>

@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-const OperadorDePropagacion = () => {
+const OperadorDePropagacion = (props) => {
     const estadoIncial = [
-        { id: 1, texto: 'tarea 1' },
-        { id: 2, texto: 'tarea 2' }
+        { id: 1, texto: 'tarea 1' }
     ]
 
     const [lista, setLista] = useState(estadoIncial)
@@ -15,14 +14,32 @@ const OperadorDePropagacion = () => {
         ])
     }
 
+    const reiniciarLista = () => {
+        setLista(estadoIncial)
+    }
+
+
     return (
         <>
-            <button onClick={() => agregarElemento()}>Agregar</button>
             {
                 lista.map((item, index) =>
                     <h4 key={item.id}>{item.texto}</h4>
                 )
             }
+            
+            <button 
+            onClick={() => agregarElemento()}
+            className={props.stilosBotonIndex}
+            >
+                Agregar
+            </button>
+            <button 
+            onClick={() => reiniciarLista()}
+            className={props.stilosBotonIndex}
+            >
+                Reinciar
+            </button>
+
         </>
     )
 }
